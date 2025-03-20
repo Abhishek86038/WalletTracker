@@ -29,5 +29,5 @@ Our vision is to simplify portfolio management for cryptocurrency users by provi
 - **Transparency**: All tracked wallets are visible on the blockchain
 - **Customizable Labels**: Assign names or notes to each tracked wallet
 
-## Contract Address
+## Contract Address :-
 0x1D192146D591b6d0cE072B1e5d2599E2D61e592C
