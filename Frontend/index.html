@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WalletTracker DApp</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.0/web3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg viewBox="0 0 24 24" class="logo-icon">
+                    <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path>
+                    <path d="M12 11l-6-4v8l6-4z"></path>
+                    <path d="M18 7l-6 4l6 4V7z"></path>
+                </svg>
+                <h1>WalletTracker</h1>
+            </div>
+            <div class="connection-status">
+                <div id="status-indicator"></div>
+                <span id="connection-text">Disconnected</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="control-panel">
+                <div class="panel-header">
+                    <h2>Control Panel</h2>
+                    <span id="owner-status">You are not the owner</span>
+                </div>
+                
+                <div class="action-cards">
+                    <div class="card">
+                        <h3>Add Wallet</h3>
+                        <div class="form-group">
+                            <input type="text" id="add-wallet-address" placeholder="Wallet Address">
+                            <input type="text" id="add-wallet-label" placeholder="Label (e.g. 'Main Wallet')">
+                            <button id="add-wallet-btn">Add Wallet</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Bulk Add Wallets</h3>
+                        <div class="form-group">
+                            <textarea id="bulk-wallets" placeholder="Format: address,label (one per line)"></textarea>
+                            <button id="add-multiple-btn">Add Multiple</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Manage Ownership</h3>
+                        <div class="form-group">
+                            <input type="text" id="new-owner-address" placeholder="New Owner Address">
+                            <button id="transfer-ownership-btn">Transfer Ownership</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="wallet-display">
+                <div class="panel-header">
+                    <h2>Tracked Wallets</h2>
+                    <span id="wallet-count">0 wallets tracked</span>
+                </div>
+                
+                <div class="wallet-filters">
+                    <input type="text" id="search-input" placeholder="Search by address or label">
+                    <button id="refresh-btn">Refresh Balances</button>
+                </div>
+                
+                <div class="wallet-list" id="wallet-list">
+                    <!-- Wallet items will be added here dynamically -->
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" class="empty-icon">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        <p>No wallets added yet</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="notification" class="notification">
+            <span id="notification-message"></span>
+            <button id="close-notification">×</button>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <h2 id="modal-title">Edit Wallet Label</h2>
+                <div class="modal-body">
+                    <input type="hidden" id="edit-wallet-address">
+                    <input type="text" id="edit-wallet-label" placeholder="New Label">
+                    <div class="modal-actions">
+                        <button id="update-label-btn" class="primary-btn">Update Label</button>
+                        <button id="remove-wallet-btn" class="danger-btn">Remove Wallet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
