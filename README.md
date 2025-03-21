@@ -35,3 +35,7 @@ Our vision is to simplify portfolio management for cryptocurrency users by provi
 
 ![image](https://github.com/user-attachments/assets/953aa92b-d4a9-4338-bbc4-a34c59938a87)
 
+##Frontend
+![image](https://github.com/user-attachments/assets/f5588c5d-077e-4482-8091-554e99071345)
+
+
